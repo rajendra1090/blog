@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import dafulatImage from '../images/s4.jpg'
 const BlogComponent = () => {
     const [blogData, SetBlogData] = useState([]);
 
@@ -32,17 +33,17 @@ const BlogComponent = () => {
                                     <div key={item.pubDate} className="item col-lg-4">
                                         <div className="thumbnail card">
                                             <div className="img-event">
-                                                <img className="group list-group-image img-fluid" src="../assets/images/img2.jpg" alt="" />
+                                                <img className="group list-group-image img-fluid" src={item.image_url !="" && item.image_url !=undefined ? item.image_url : dafulatImage } alt="" />
                                             </div>
                                             <div className="caption card-body">
-                                                <h4 className="group card-title inner list-group-item-heading">
-                                                    {item.title.substring(1, 20)+"..."}</h4>
+                                                <h4 className="group card-title text-capitalised inner list-group-item-heading">
+                                                    {item.title.substring(1, 20).toLowerCase()+"..."}</h4>
                                                 <p className="group inner list-group-item-text">
                                                     {item.description.substring(1, 70)+"..."}</p>
                                                 <div className="row">
                                                     <div className="col-6">
                                                         <p className="lead">
-                                                            $720.00</p>
+                                                           {item.pubDate.split(" ")[0].split("-").reverse().join("-")}</p>
                                                     </div>
                                                     <div className="col-6 ban-buttons">
                                                         <a className="btn btn-course" href="">View More</a>
